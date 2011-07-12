@@ -3,6 +3,10 @@ require 'tilt'
 module Tilt
   class MustacheJsTemplate < Template
     self.default_mime_type = 'application/javascript'
+    
+    def self.engine_initialized?
+      defined? ::Mustache.to_javascript
+    end
 
     def initialize_engine
       require_template_library 'mustache/js'
