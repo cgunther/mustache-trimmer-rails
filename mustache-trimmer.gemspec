@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   ]
 
   s.add_dependency 'mustache', '~> 0.99.4'
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'therubyracer'
 
   s.authors           = ['Joshua Peek']
