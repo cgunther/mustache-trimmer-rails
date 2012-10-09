@@ -1,7 +1,9 @@
+require 'mustache/js'
+require 'sprockets'
 require 'tilt'
 
-module Tilt
-  class MustacheJsTemplate < Template
+module Sprockets
+  class MustacheJsTemplate < ::Tilt::Template
     self.default_mime_type = 'application/javascript'
     
     def self.engine_initialized?
@@ -20,3 +22,6 @@ module Tilt
     end
   end
 end
+
+Sprockets::Engines
+Sprockets.register_engine '.mustachejs', Sprockets::MustacheJsTemplate
