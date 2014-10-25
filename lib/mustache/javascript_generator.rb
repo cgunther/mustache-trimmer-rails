@@ -177,7 +177,7 @@ class Mustache
       end
     end
 
-    def on_section(name, content, raw, delims)
+    def on_section(name, offset, content, raw, delims)
       @helpers[:isEmpty] = true
       @helpers[:isObject] = @helpers[:isArray] = @helpers[:isFunction] = true
 
@@ -211,7 +211,7 @@ class Mustache
       JS
     end
 
-    def on_inverted_section(name, content, raw, _)
+    def on_inverted_section(name, offset, content, raw, _)
       @helpers[:isEmpty] = true
 
       f, v = global, local(:v)
@@ -226,7 +226,7 @@ class Mustache
       JS
     end
 
-    def on_partial(name, indentation)
+    def on_partial(name, offset, indentation)
       unless @partials[name]
         @partials[name] = true # Stub for recursion
 
@@ -255,7 +255,7 @@ class Mustache
       nil
     end
 
-    def on_utag(name)
+    def on_utag(name, offset)
       @helpers[:isFunction] = true
       @helpers[:isEmpty] = true
 
@@ -272,7 +272,7 @@ class Mustache
       JS
     end
 
-    def on_etag(name)
+    def on_etag(name, offset)
       @helpers[:isFunction] = true
       @helpers[:isEmpty] = @helpers[:escape] = true
 

@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     'README.md'
   ]
 
-  s.add_dependency 'mustache', '~> 0.99.4'
+  s.add_dependency 'mustache', '~> 0.99.5'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'therubyracer'
 
